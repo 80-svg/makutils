@@ -22,8 +22,8 @@ public final class Makutils extends JavaPlugin implements Listener {
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
         String playerName = event.getPlayer().getName();
-        //String joinMassage = "{player} has arrived! Everybody act natural!";
-        Component message = Component.text(playerName + " has arrived! Everybody act natural!").color(NamedTextColor.YELLOW);
+        String joinMassage = "{player} has arrived! Everybody act natural!";
+        Component message = Component.text(joinMassage.replace("{player}", playerName)).color(NamedTextColor.YELLOW);
         event.joinMessage(message);
     }
 

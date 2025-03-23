@@ -5,6 +5,7 @@ import net.kyori.adventure.text.format.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
 //import java.awt.*;
@@ -25,6 +26,15 @@ public final class Makutils extends JavaPlugin implements Listener {
         String joinMassage = "{player} has arrived! Everybody act natural!";
         Component message = Component.text(joinMassage.replace("{player}", playerName)).color(NamedTextColor.YELLOW);
         event.joinMessage(message);
+    }
+
+    // Change Leave Message
+    @EventHandler
+    public void onPlayerLeave(PlayerQuitEvent event) { //Basically the same as the onPlayerJoin thing btw
+        String playerName = event.getPlayer().getName();
+        String quitMessage = "{player} got pegged in the ass";
+        Component message = Component.text(quitMessage.replace("{player}", playerName)).color(NamedTextColor.YELLOW);
+        event.quitMessage(message);
     }
 
 }

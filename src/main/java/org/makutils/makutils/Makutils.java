@@ -7,7 +7,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.awt.*;
+//import java.awt.*;
 
 public final class Makutils extends JavaPlugin implements Listener {
 
@@ -22,18 +22,9 @@ public final class Makutils extends JavaPlugin implements Listener {
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
         String playerName = event.getPlayer().getName();
-        String joinMassage = "{player} has arrived! Everybody act natural!";
+        //String joinMassage = "{player} has arrived! Everybody act natural!";
         Component message = Component.text(playerName + " has arrived! Everybody act natural!").color(NamedTextColor.YELLOW);
         event.joinMessage(message);
     }
 
-
-
-
-    // Boilerplate, don't touch this except if you know what you are doing pls.
-    @Override
-    public void onDisable() {
-        // Plugin shutdown logic
-        System.out.println("Makutils shut down, :(((");
-    }
 }

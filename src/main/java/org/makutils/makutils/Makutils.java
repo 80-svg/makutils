@@ -2,14 +2,16 @@ package org.makutils.makutils;
 
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.*;
-//import org.bukkit.command.Command;
-//import org.bukkit.command.CommandSender;
-//import org.bukkit.entity.Player;
+import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.Material;
+import org.bukkit.inventory.meta.SkullMeta;
 
 import java.util.Random;
 
@@ -24,17 +26,22 @@ public final class Makutils extends JavaPlugin implements Listener {
         getServer().getPluginManager().registerEvents(this, this);
     }
 
-//    @Override
-//    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-//        if (command.getName().equalsIgnoreCase("heal")) {
-//        if (sender instanceof Player) {
-//            Player player = (Player) sender;
-//            player.setHealth(20);
-//            player.setFoodLevel(20);
-//            }
-//        }
-//        return true;
-//    }
+    public ItemStack getPlayerHead(String playerName) {
+        ItemStack head = new ItemStack(Material.PLAYER_HEAD, 1);
+        SkullMeta meta = (SkullMeta) head.getItemMeta();
+
+        // Choose whose skull is it
+        meta.setOwningPlayer(Bukkit.getOfflinePlayer(playerName));
+        head.setItemMeta(meta);
+        return head;
+    }
+
+    @EventHandler
+    public void onPlayerDeath(PlayerDeathEvent event) {
+        String playerName = event.getPlayer().getName(); // Get playerName
+        ItemStack skull = getPlayerHead(playerName); // Get playerSkull
+        event.getDrops().add(skull); // Drop the skull
+    }
 
     // Change Join Message
     @EventHandler

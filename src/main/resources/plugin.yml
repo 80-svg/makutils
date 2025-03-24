@@ -3,3 +3,7 @@ version: '0.0'
 main: org.makutils.makutils.Makutils
 api-version: '1.21'
 description: 'Nothing yet'
+#commands:
+#  heal:
+#    description: restore your health to max
+#    usage: /<command>

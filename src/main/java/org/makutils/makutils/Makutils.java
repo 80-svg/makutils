@@ -2,11 +2,15 @@ package org.makutils.makutils;
 
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.*;
+//import org.bukkit.command.Command;
+//import org.bukkit.command.CommandSender;
+//import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.plugin.java.JavaPlugin;
+
 import java.util.Random;
 
 //import java.awt.*;
@@ -19,6 +23,18 @@ public final class Makutils extends JavaPlugin implements Listener {
         System.out.println("Makutils has been summoned!! :)");
         getServer().getPluginManager().registerEvents(this, this);
     }
+
+//    @Override
+//    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+//        if (command.getName().equalsIgnoreCase("heal")) {
+//        if (sender instanceof Player) {
+//            Player player = (Player) sender;
+//            player.setHealth(20);
+//            player.setFoodLevel(20);
+//            }
+//        }
+//        return true;
+//    }
 
     // Change Join Message
     @EventHandler

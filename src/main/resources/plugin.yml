@@ -1,8 +1,8 @@
 name: MakUtils
 version: '0.0'
 main: org.makutils.makutils.Makutils
-api-version: '1.21'
-description: 'Nothing yet'
+api-version: '1.21.5'
+description: 'Nothing is impossible, the word itself says Im possible!'
 #commands:
 #  heal:
 #    description: restore your health to max
